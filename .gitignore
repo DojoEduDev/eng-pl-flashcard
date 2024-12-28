@@ -1,0 +1,15 @@
+# Byte-compiled
+__pycache__/
+
+# Envirnoments:
+.env
+.venv
+env/
+venv/
+
+# Logs
+*.log
+*.logs
+
+# Test sqlite db
+db.sqlite3
