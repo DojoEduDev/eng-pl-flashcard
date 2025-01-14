@@ -13,3 +13,6 @@ venv/
 
 # Test sqlite db
 db.sqlite3
+
+# other
+*.bkp
