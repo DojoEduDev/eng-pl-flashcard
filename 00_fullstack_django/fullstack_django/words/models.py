@@ -2,15 +2,31 @@ from django.db import models
 
 
 class English(models.Model):
-    word = models.TextField()
+    """
+    Model for English words.
+    
+    Fields:
+        word (CharField) - The English word.
+        description (TextField) - A brief definition.
+    """
+    word = models.CharField(max_length=100, unique=True)
     description = models.TextField()
+
+    def __str__(self):
+        return f"{self.word.capitalize()} - {self.description}."
 
 
 class Polish(models.Model):
-    word = models.TextField()
+    """
+    Model for Polish words.
+    
+    Fields:
+        word (CharField) - The Polish word.
+        description (TextField) - A brief definition.
+    """
+    word = models.CharField(max_length=100, unique=True)
     description = models.TextField()
- 
 
-class FlashCard(models.Model):
-    english = models.ForeignKey(English, on_delete=models.CASCADE)
-    polish = models.ForeignKey(Polish, on_delete=models.CASCADE)
+    def __str__(self):
+        return f"{self.word.capitalize()} - {self.description}."
+ 
