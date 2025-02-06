@@ -2,15 +2,22 @@ from rest_framework import serializers
 from words.models import English, Polish
 
 
-class EnglishWorldSerializer(serializers.ModelSerializer):
+class EnglishWordSerializer(serializers.ModelSerializer):
     class Meta:
         model = English
         fields = [
             'id',
             'word',
-            'description ',
         ]
 
+class EnglishWordDetialSeralizer(serializers.ModelSerializer):
+    class Meta:
+        model = English
+        fields = [
+            'id',
+            'word',
+            'description '
+        ]
 
 class PolishWordSerializer(serializers.ModelSerializer):
     class Meta:
@@ -18,5 +25,13 @@ class PolishWordSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'word',
-            'description'
+        ]
+
+class PolishWordDetialSeralizer(serializers.ModelSerializer):
+    class Meta:
+        model = English
+        fields = [
+            'id',
+            'word',
+            'description '
         ]
