@@ -5,33 +5,23 @@ from words.models import English, Polish
 class EnglishWordSerializer(serializers.ModelSerializer):
     class Meta:
         model = English
-        fields = [
-            'id',
-            'word',
-        ]
+        fields = ['id', 'word']
 
-class EnglishWordDetialSeralizer(serializers.ModelSerializer):
+
+class EnglishWordDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = English
-        fields = [
-            'id',
-            'word',
-            'description '
-        ]
+        fields = ['id', 'word', 'description']
+
 
 class PolishWordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Polish
-        fields = [
-            'id',
-            'word',
-        ]
+        fields = ['id', 'word']
 
-class PolishWordDetialSeralizer(serializers.ModelSerializer):
+
+class PolishWordDetailSerializer(serializers.ModelSerializer):
     class Meta:
-        model = English
-        fields = [
-            'id',
-            'word',
-            'description '
-        ]
+        model = Polish
+        fields = ['id', 'word', 'description']
+
