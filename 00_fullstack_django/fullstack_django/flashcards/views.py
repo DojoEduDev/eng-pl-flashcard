@@ -9,8 +9,8 @@ from flashcards.models import FlashCard
 from flashcards.serializers import FlashCardSerializer, RequestFullFlashCardSerializer
 from words.models import English, Polish
 
-
 logger = logging.getLogger(__name__)
+
 
 @extend_schema(tags=["FlashCards"])
 class FlashCardsViewSet(viewsets.ModelViewSet):
@@ -19,7 +19,7 @@ class FlashCardsViewSet(viewsets.ModelViewSet):
     """
     
     @extend_schema(
-        summary="Retrieve all Flashcards.",
+        summary="Retrieves all Flashcards.",
         description="Return a list of all Eng-Pol flashcards.",
         responses={200: FlashCardSerializer(many=True)},
     )
@@ -29,7 +29,7 @@ class FlashCardsViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     @extend_schema(
-        summary="Retrieve a Flashcard.",
+        summary="Retrieves a Flashcard.",
         description="Return a `Flashcard` based on provided `ID`.",
         responses={200: FlashCardSerializer(), 404: None},
     )
@@ -39,7 +39,7 @@ class FlashCardsViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     @extend_schema(
-        summary="Create a Flashcard.",
+        summary="Creates a Flashcard.",
         description="Create a `Flashcard` using existing `English` and `Polish` words.",
         request=FlashCardSerializer,
         responses={201: FlashCardSerializer(), 400: None},
@@ -51,20 +51,32 @@ class FlashCardsViewSet(viewsets.ModelViewSet):
             return Response(FlashCardSerializer(flashcard).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @extend_schema(exclude=True)
+    def update(self, request, pk):
+        return Response({"detail": "Not implemented"}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    @extend_schema(exclude=True)
+    def partial_update(self, request, pk):
+        return Response({"detail": "Not implemented"}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    @extend_schema(exclude=True)
+    def destroy(self, request, pk):
+        return Response({"detail": "Not implemented"}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
+@extend_schema(tags=["FlashCards"])
 class CreateFullyFlashCards(viewsets.ModelViewSet):
     """
     API endpoint to create FlashCards along with new English & Polish words.
     """
 
     @extend_schema(
-        summary="Create a Flashcard with new words.",
+        summary="Creates a Flashcard with new words.",
         description="Creates both `English` and `Polish` words and a `FlashCard` linking them.",
         request=RequestFullFlashCardSerializer,
         examples=[
             OpenApiExample(
-                "Create FlashCard Example",
+                "Creates FlashCard Example",
                 description="Example request to create a new flashcard with English and Polish words.",
                 value={
                     "english_word": {
