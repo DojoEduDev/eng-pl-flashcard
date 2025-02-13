@@ -12,6 +12,7 @@ urlpatterns = [
         # register APPs URLs:
         include([
             path('words/', include('words.urls')),
+            path('flashcards/', include('flashcards.urls')),
         ])
     ),
 ]

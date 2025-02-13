@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'users',
     'words',
+    'flashcards',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,6 @@ REST_FRAMEWORK = {
 SPECTACULAR_SETTINGS = {
     'TITLE': 'ENG-PL FlashCards project',  # shorthand to use the sidecar instead
     'DESCRIPTION': 'It is the API docs for fullstack version of FlashCards project',
-    'VERSION': '0.0.1',
+    'VERSION': '0.0.2',
     'SERVE_INCLUDE_SCHEMA': False,
 }
