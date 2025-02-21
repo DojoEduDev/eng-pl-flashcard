@@ -24,4 +24,3 @@ class PolishWordDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Polish
         fields = ['id', 'word', 'description']
-
