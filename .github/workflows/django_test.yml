@@ -34,9 +34,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-            docker build -t foxitfun/django-app ./00_fullstack_django/Dockerfile
+            docker build -t foxitfun/django-app ./00_fullstack_django/
             sleep 10
-      
+
       - name: Run Docker Container
         run: |
             docker run -d --name django-app -p 8000:8000 foxitfun/django-app
